@@ -1,0 +1,109 @@
+/*-------------- Header -----------------*/
+.header{
+	padding: 2.5rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 10;
+
+	.ic-hamburger,
+	.logo{
+		display: none;
+	}
+}
+
+.logo{
+	max-width: 3rem;
+	position: fixed;
+	top: 1.9rem;
+	left: 1.9rem;
+}
+
+.top-menu{
+	&__list,
+	&__item{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__list{
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__item,
+	&__item a{
+		@include font(normal, bold, 1rem, 1.15, $color-text);
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	&__item:not(:last-child){
+		margin-right: 3rem;
+	}
+
+	&__item a:hover{
+		color: $color-orange;
+	}
+}
+
+@media (min-width: 768px) {
+	.top-menu{
+		display: block!important;
+	}
+}
+
+@media (max-width: 767px) {
+	.header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem 10px;
+		position: relative;
+
+		.ic-hamburger,
+		.logo{
+			display: inline-block;
+		}
+
+		.logo{
+			position: static;
+			width: 35px;
+		}
+	}
+
+	.top-menu{
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		width: 100%;
+		background: rgba(36,36,36,1);
+		background: -moz-linear-gradient(left, rgba(36,36,36,1) 0%, rgba(74,75,76,1) 73%, rgba(61,62,62,1) 100%);
+		background: -webkit-gradient(left top, right top, color-stop(0%, rgba(36,36,36,1)), color-stop(73%, rgba(74,75,76,1)), color-stop(100%, rgba(61,62,62,1)));
+		background: -webkit-linear-gradient(left, rgba(36,36,36,1) 0%, rgba(74,75,76,1) 73%, rgba(61,62,62,1) 100%);
+		background: -o-linear-gradient(left, rgba(36,36,36,1) 0%, rgba(74,75,76,1) 73%, rgba(61,62,62,1) 100%);
+		background: -ms-linear-gradient(left, rgba(36,36,36,1) 0%, rgba(74,75,76,1) 73%, rgba(61,62,62,1) 100%);
+		background: linear-gradient(to right, rgba(36,36,36,1) 0%, rgba(74,75,76,1) 73%, rgba(61,62,62,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242424', endColorstr='#3d3e3e', GradientType=1 );
+		box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
+		padding: 0 10px 10px;
+		text-align: center;
+
+		&__list{
+			display: block;
+		}
+
+		&__item:not(:last-child){
+			margin-right: 0;
+		}
+
+		&__item {
+			padding: 7px 0;
+		}
+	}
+}

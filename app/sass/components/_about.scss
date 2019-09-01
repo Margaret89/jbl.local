@@ -1,0 +1,187 @@
+/*-------------- about -----------------*/
+@keyframes flipInX {
+	from {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+		transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+	}
+
+	to {
+		-webkit-transform: perspective(400px);
+		transform: perspective(400px);
+		opacity: 1;
+	}
+}
+
+.about{
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	overflow: hidden;
+	padding: 3rem;
+
+	&__text,
+	&__img{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		width: 50%;
+	}
+
+	&__text{
+		position: relative;
+		z-index: 2
+	}
+
+	&__img{
+		align-items: center;
+		position: relative;
+	}
+
+	&__spray{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		height: 140%;
+		max-width: none;
+		margin-left: -5rem;
+		margin-top: 4rem;
+		opacity: 0;
+		transition: all 0.8s ease-in-out 0s;
+	}
+
+	&__watch{
+		position: relative;
+		opacity: 0;
+	}
+
+	&__head{
+		font-family: $font-helvetica;
+		@include font(normal, 500, 8.5rem, 1, $color-text);
+		text-transform: uppercase;
+		opacity: 0;
+		transition: all 1s linear 1.2s;
+	}
+
+	&__label{
+		font-family: $font-helvetica;
+		@include font(normal, 300, 1.9rem, 1.2, $color-text);
+		text-transform: uppercase;
+	}
+
+	&__label--top{
+		padding-left: 6.5rem;
+		opacity: 0;
+		transition: all 0.5s linear 2.2s;
+	}
+
+	&__label--bottom{
+		padding-left: 14.4rem;
+		opacity: 0;
+		transition: all 0.5s linear 2.7s;
+	}
+}
+
+.fullpage__item.animate{
+	.about__spray{
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	.about__watch{
+		animation: flipInX 1s ease-in-out 0.5s;
+		animation-fill-mode: forwards;
+	}
+
+	.about__head,
+	.about__label--top,
+	.about__label--bottom{
+		opacity: 1;
+	}
+}
+
+@media (max-width: 1450px) {
+	.about__spray{
+		height: 110%;
+	}
+}
+
+@media (max-width: 1024px) {
+	.about__spray{
+		height: 100%;
+	}
+}
+
+@media (max-width: 767px) {
+	.about{
+		display: block;
+		padding: 2rem;
+		height: auto;
+		overflow: visible;
+
+		&__text,
+		&__img{
+			width: 100%;
+		}
+
+		&__head{
+			font-size: 6.5rem;
+		}
+
+		&__label--top{
+			padding-left: 5.2rem;
+		}
+
+		&__label--bottom{
+			padding-left: 11.4rem;
+		}
+
+		&__img{
+			margin-top: 4rem;
+		}
+	}
+}
+
+@media (max-width: 410px) {
+	.about{
+		padding: 2rem 1rem;
+
+		&__head{
+			font-size: 5.5rem;
+		}
+
+		&__label{
+			font-size: 1.6rem;
+		}
+
+		&__label--top{
+			padding-left: 4.5rem;
+		}
+
+		&__label--bottom{
+			padding-left: 9.4rem;
+		}
+	}
+}

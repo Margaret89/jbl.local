@@ -1,0 +1,312 @@
+/*-------------- prices-slider -----------------*/
+.prices-slider{
+	.slick-vertical &__item.slick-slide{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__item{
+		margin: 0 8rem;
+		transform: scale(1);
+		opacity: 0.6;
+		transition: all 1s ease 0s;
+		cursor: pointer;
+	}
+
+	&__item.active{
+		transform: scale(1.2);
+		opacity: 1;
+		cursor: auto;
+	}
+
+	&__card{
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 55%;
+		background: #565656;
+		border-radius: 30px;
+		position: relative;
+		padding: 1.3rem 2.75rem 3rem;
+		box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.3);
+	}
+
+	&__bg-label{
+		position: absolute;
+		top: 15%;
+		right: 0;
+		font-family: $font-helvetica;
+		@include font(normal, bold, 9rem, 1, rgba(135,135,135,0.15));
+		text-transform: uppercase;
+		text-align: right;
+		width: 100%;
+		padding: 0 3rem;
+	}
+
+	&__img{
+		height: 150%;
+		width: 50%;
+		margin-top: -13%;
+		margin-left: -5%;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__img img{
+		height: 100%;
+	}
+
+	&__content{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 50%;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__price{
+		font-family: $font-helvetica;
+		@include font(normal, 500, 1.2rem, 1.3, $color-orange);
+		text-align: right;
+	}
+
+	&__price-val{
+		font-size: 1.6rem;
+	}
+
+	&__head{
+		font-family: $font-helvetica;
+		@include font(normal, bold, 3rem, 1, $color-text);
+		letter-spacing: -0.1rem;
+		text-transform: uppercase;
+	}
+
+	&__btn{
+		text-align: right;
+	}
+
+	&__card--mirror{
+		opacity: 0.4;
+		-moz-transform: scale(1,-1);
+		-webkit-transform: scale(1, -1);
+		-o-transform: scale(1, -1);
+		transform: scale(1, -1);
+		filter: FlipV;
+		-ms-filter: "FlipV";
+		position: absolute;
+		top: 78%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		padding: 1rem 2.75rem;
+	}
+
+	&__card--mirror .btn{
+		height: 1.5rem;
+		line-height: 1.4;
+		font-size: 1rem;
+	}
+
+	&__card--mirror &__content{
+		justify-content: flex-end;
+	}
+
+	&__card--mirror &__head{
+		margin-bottom: 2rem;
+		font-size: 2.5rem;
+	}
+
+	&__card--mirror &__img{
+		margin-top: -18%;
+	}
+
+	&::after{
+		content: '';
+		display: block;
+		width: 100%;
+		height: 25%;
+		background: rgba(51,51,51,0);
+		background: -moz-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(51,51,51,0)), color-stop(100%, rgba(51,51,51,1)));
+		background: -webkit-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,1) 100%);
+		background: -o-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,1) 100%);
+		background: -ms-linear-gradient(top, rgba(51,51,51,0) 0%, rgba(51,51,51,1) 100%);
+		background: linear-gradient(to bottom, rgba(51,51,51,0) 0%, rgba(51,51,51,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#333333', endColorstr='#333333', GradientType=0 );
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+
+	}
+}
+
+@media (max-width: 1600px) {
+	.prices-slider{
+		&__item{
+			margin: 0 4rem;
+		}
+	}
+}
+
+@media (max-width: 1279px) {
+	.prices-slider{
+		&__img{
+			height: 135%;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.prices-slider{
+		&__card{
+			padding: 1.5rem;
+			overflow: hidden;
+		}
+
+		&__img{
+			height: 100%;
+			margin-top: 0;
+		}
+
+		&__head{
+			font-size: 2.2rem;
+		}
+
+		.btn{
+			min-width: auto;
+		}
+
+		&__card--mirror &__head{
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.prices-slider{
+		padding: 3rem 0;
+
+		&__item{
+			padding: 2rem 3rem;
+			margin: 0;
+			opacity: 1;
+		}
+
+		&__item.active{
+			transform: none;
+		}
+
+		&__card{
+			display: block;
+			height: auto;
+		}
+
+		&__card--mirror,
+		&::after{
+			display: none;
+		}
+
+		&__img,
+		&__content{
+			width: 100%;
+			height: auto;
+			margin: 0;
+			text-align: center;
+		}
+
+		&__img img{
+			display: inline-block;
+			max-height: 300px;
+		}
+
+		&__price,
+		&__btn{
+			text-align: center;
+		}
+
+		&__head{
+			order: -1;
+			margin-bottom: 1rem;
+		}
+
+		&__price{
+			margin-bottom: 1rem;
+		}
+
+		&__bg-label{
+			font-size: 5rem;
+			text-align: center;
+		}
+
+		.slick-dots{
+			display: flex;
+			flex-direction: column;
+			position: absolute;
+			@include top-center;
+			left: 1rem;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+
+		.slick-dots li{
+			padding: 0;
+			margin: 12px 0;
+			list-style: none;
+			font-size: 0;
+		}
+
+		.slick-dots li button{
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: #747474;
+			border: 0;
+			outline: none;
+			box-shadow: none;
+			font-size: 0;
+			padding: 0;
+			cursor: pointer;
+			position: relative;
+		}
+
+		.slick-dots li button::before{
+			content: '';
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border: 3px solid transparent;
+			border-radius: 50%;
+			position: absolute;
+			top: -3px;
+			left: -3px;
+			box-sizing: content-box;
+		}
+
+		.slick-dots li button:hover,
+		.slick-dots li.slick-active button{
+			background: transparent;
+		}
+
+
+		.slick-dots li button:hover::before,
+		.slick-dots li.slick-active button::before{
+			border-color: #fe651d;
+			background: transparent;
+		}
+	}
+}
+
+@media (max-width: 410px) {
+	.prices-slider{
+		&__img{
+			padding: 0;
+		}
+	}
+}
