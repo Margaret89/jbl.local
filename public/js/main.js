@@ -74,7 +74,7 @@ $(document).ready(function () {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
-		dots: false,
+		dots: true,
 		centerMode: true,
 		centerPadding: '18.5%',
 		swipe: true,
@@ -82,7 +82,6 @@ $(document).ready(function () {
 		{
 			breakpoint: 768,
 			settings: {
-				dots: true,
 				centerMode: false,
 				vertical: true,
 				swipe: false,
