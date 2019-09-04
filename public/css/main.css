@@ -941,9 +941,12 @@ input[type="submit"].btn:hover {
   -o-transition: all 1s ease 0s;
   transition: all 1s ease 0s;
   cursor: pointer;
+  border: 0;
+  outline: 0;
 }
 
-.prices-slider__item.active {
+.prices-slider__item.active,
+.prices-slider__item.slick-current {
   -webkit-transform: scale(1.2);
       -ms-transform: scale(1.2);
           transform: scale(1.2);
@@ -1138,7 +1141,8 @@ input[type="submit"].btn:hover {
     margin: 0;
     opacity: 1;
   }
-  .prices-slider__item.active {
+  .prices-slider__item.active,
+  .prices-slider__item.slick-current {
     -webkit-transform: none;
         -ms-transform: none;
             transform: none;

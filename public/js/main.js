@@ -13,6 +13,7 @@ $(document).ready(function () {
 				arrows: false,
 				vertical: true,
 				infinite: false,
+				swipe: false,
 				 responsive: [
 					{
 						breakpoint: 768,
@@ -76,7 +77,7 @@ $(document).ready(function () {
 		dots: false,
 		centerMode: true,
 		centerPadding: '18.5%',
-		swipe: false,
+		swipe: true,
 		responsive: [
 		{
 			breakpoint: 768,
@@ -84,6 +85,7 @@ $(document).ready(function () {
 				dots: true,
 				centerMode: false,
 				vertical: true,
+				swipe: false,
 			}
 		},
 		
@@ -97,6 +99,10 @@ $(document).ready(function () {
 
 		$('.js-prices-item').removeClass('active');
 		$itemSlider.addClass('active');
+	});
+
+	$('.js-prices-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		$('.js-prices-item').removeClass('active');
 	});
 
 	// Добавление анимации
